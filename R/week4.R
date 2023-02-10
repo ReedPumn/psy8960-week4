@@ -10,3 +10,4 @@ wide_tbl[5:9] <- sapply(wide_tbl[5:9], as.integer)
 wide_tbl$datadate <- as.POSIXct(wide_tbl$datadate, format = "%b %d %Y, %H:%M:%S")
 wide_tbl[5:9] <- na_if(wide_tbl[5:9], 0)
 wide_tbl <- wide_tbl[wide_tbl$q2 != "NA",]
+long_tbl <- pivot_longer(wide_tbl, cols = 5:9, names_to = "q#", values_to = "response")
